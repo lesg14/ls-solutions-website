@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+  <title>Auriculares inalámbricos Lenovo RS106</title>
+  <rect width="800" height="520" fill="#171717"/>
+  <circle cx="400" cy="260" r="170" fill="#27272a"/>
+  <path d="M270 270v-58c0-82 58-132 130-132s130 50 130 132v58h-54v-58c0-48-31-78-76-78s-76 30-76 78v58z" fill="#f4f4f5"/>
+  <rect x="235" y="250" width="70" height="145" rx="35" fill="#e4e4e7"/>
+  <rect x="495" y="250" width="70" height="145" rx="35" fill="#e4e4e7"/>
+  <text x="400" y="465" fill="#a1a1aa" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">LENOVO RS106</text>
+</svg>

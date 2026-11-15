@@ -11,7 +11,8 @@ export default function Page() {
   return (
     <>
       <SiteHeader />
-      <main>        <Hero />
+      <main>
+        <Hero />
         <Services />
         <About />
         <Contact />
