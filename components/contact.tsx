@@ -5,28 +5,20 @@ import { Phone, Send } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { WhatsappIcon, InstagramIcon, FacebookIcon } from "@/components/brand-icons"
 import { siteConfig, whatsappLink } from "@/lib/site"
-
-const serviceOptions = [
-  "Mantenimiento de computadores",
-  "Instalación de S.O. (Windows/Linux)",
-  "Licencia de Microsoft Office",
-  "Venta de componentes y accesorios",
-  "Repotenciación de equipos",
-  "Desarrollo de página web",
-  "Automatización de procesos",
-  "Otro / Asesoría",
-]
+import { useSitePreferences } from "@/components/site-preferences"
 
 export function Contact() {
+  const { t } = useSitePreferences()
+  const serviceOptions = t.contact.serviceOptions
   const [name, setName] = useState("")
-  const [service, setService] = useState(serviceOptions[0])
+  const [serviceIndex, setServiceIndex] = useState(0)
   const [message, setMessage] = useState("")
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const text =
       `Hola LS Solutions, soy ${name || "un cliente"}.` +
-      `\nServicio de interés: ${service}.` +
+      `\nServicio de interés: ${serviceOptions[serviceIndex]}.` +
       (message ? `\nMensaje: ${message}` : "")
     window.open(whatsappLink(text), "_blank", "noopener,noreferrer")
   }
@@ -46,12 +38,12 @@ export function Contact() {
     <section id="contacto" className="bg-background py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Contacto</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">{t.contact.eyebrow}</p>
           <h2 className="mt-2 text-balance font-heading text-3xl font-bold text-foreground md:text-4xl">
-            Hablemos de tu proyecto o servicio
+            {t.contact.title}
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Completa el formulario y te enviaremos directo a WhatsApp con tu solicitud lista para enviar.
+            {t.contact.description}
           </p>
         </div>
 
@@ -62,7 +54,7 @@ export function Contact() {
           >
             <div className="flex flex-col gap-2">
               <label htmlFor="name" className="text-sm font-medium text-card-foreground">
-                Nombre
+                {t.contact.name}
               </label>
               <input
                 id="name"
@@ -70,23 +62,23 @@ export function Contact() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Tu nombre"
+                placeholder={t.contact.namePlaceholder}
                 className="rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="service" className="text-sm font-medium text-card-foreground">
-                Servicio de interés
+                {t.contact.service}
               </label>
               <select
                 id="service"
-                value={service}
-                onChange={(e) => setService(e.target.value)}
+                value={serviceIndex}
+                onChange={(e) => setServiceIndex(Number(e.target.value))}
                 className="rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
               >
-                {serviceOptions.map((option) => (
-                  <option key={option} value={option}>
+                {serviceOptions.map((option, index) => (
+                  <option key={option} value={index}>
                     {option}
                   </option>
                 ))}
@@ -95,30 +87,30 @@ export function Contact() {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="message" className="text-sm font-medium text-card-foreground">
-                Mensaje (opcional)
+                {t.contact.message}
               </label>
               <textarea
                 id="message"
                 rows={4}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Cuéntanos qué necesitas..."
+                placeholder={t.contact.messagePlaceholder}
                 className="resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
             </div>
 
             <button type="submit" className={buttonVariants({ size: "lg", className: "w-full" })}>
               <Send className="size-4" />
-              Enviar por WhatsApp
+              {t.actions.sendWhatsapp}
             </button>
             <p className="text-center text-xs text-muted-foreground">
-              Al enviar, se abrirá WhatsApp con tu mensaje listo para nosotros.
+              {t.contact.note}
             </p>
           </form>
 
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <div className="rounded-2xl border border-border bg-secondary p-6 text-secondary-foreground">
-              <h3 className="font-heading text-lg font-semibold">Contacto directo</h3>
+            <div className="rounded-2xl border border-border bg-card p-6 text-card-foreground dark:bg-secondary dark:text-secondary-foreground">
+              <h3 className="font-heading text-lg font-semibold">{t.contact.direct}</h3>
               <a
                 href={whatsappLink("Hola LS Solutions, quiero más información.")}
                 target="_blank"
@@ -129,14 +121,14 @@ export function Contact() {
                   <Phone className="size-5" />
                 </span>
                 <span>
-                  <span className="block text-secondary-foreground/60">WhatsApp</span>
+                  <span className="block text-muted-foreground dark:text-secondary-foreground/60">{t.contact.whatsapp}</span>
                   <span className="font-medium">{siteConfig.whatsappDisplay}</span>
                 </span>
               </a>
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-6">
-              <h3 className="font-heading text-lg font-semibold text-card-foreground">Síguenos</h3>
+              <h3 className="font-heading text-lg font-semibold text-card-foreground">{t.contact.follow}</h3>
               <ul className="mt-4 flex flex-col gap-3">
                 {socials.map(({ label, value, href, Icon }) => (
                   <li key={label}>
