@@ -11,7 +11,6 @@ import { siteConfig, whatsappLink } from "@/lib/site"
 
 const navLinks = [
   { href: "#servicios", key: "services" },
-  { href: "#productos", key: "products" },
   { href: "#nosotros", key: "about" },
   { href: "#contacto", key: "contact" },
 ] as const
