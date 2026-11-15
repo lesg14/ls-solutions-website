@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+  <title>Tablet Lenovo M11</title>
+  <rect width="800" height="520" fill="#171717"/>
+  <rect x="260" y="55" width="280" height="410" rx="24" fill="#3f3f46" stroke="#a1a1aa" stroke-width="8"/>
+  <rect x="280" y="82" width="240" height="350" rx="8" fill="#0f172a"/>
+  <circle cx="400" cy="445" r="7" fill="#a1a1aa"/>
+  <path d="M310 335c35-66 72-72 105-18 25-42 61-56 105 18v65H310z" fill="#2563eb" opacity=".8"/>
+  <circle cx="400" cy="190" r="58" fill="#38bdf8" opacity=".8"/>
+  <text x="400" y="495" fill="#a1a1aa" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">LENOVO M11</text>
+</svg>

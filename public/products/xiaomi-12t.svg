@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title">
+  <title>Teléfono Xiaomi 12T</title>
+  <rect width="800" height="520" fill="#171717"/>
+  <rect x="310" y="35" width="180" height="450" rx="28" fill="#18181b" stroke="#71717a" stroke-width="8"/>
+  <rect x="325" y="55" width="150" height="410" rx="18" fill="#164e63"/>
+  <circle cx="360" cy="95" r="22" fill="#d4d4d8"/>
+  <circle cx="360" cy="95" r="9" fill="#27272a"/>
+  <circle cx="360" cy="145" r="22" fill="#d4d4d8"/>
+  <circle cx="360" cy="145" r="9" fill="#27272a"/>
+  <path d="M325 355c42-90 104-100 150-10v121H325z" fill="#22d3ee" opacity=".7"/>
+  <text x="400" y="510" fill="#a1a1aa" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">XIAOMI 12T</text>
+</svg>
